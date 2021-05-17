@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1621236682 source:c:\users\igree\desktop\lab04 cb\lab03-test\main.cpp
+	<cassert>
+	<sstream>
+	<iostream>
+	"C:\Users\igree\Desktop\lab04 CB\lab03\svg.h"
+	"C:\Users\igree\Desktop\lab04 CB\lab03\histogram.h"
+
+1618850194 c:\users\igree\desktop\lab04 cb\lab03\svg.h
+	<iostream>
+	<vector>
+
+1621160454 c:\users\igree\desktop\lab04 cb\lab03\histogram.h
+	<iostream>
+	<vector>
+
+1618851563 source:c:\users\igree\desktop\lab04 cb\lab03\svg.cpp
+	"svg.h"
+	<vector>
+	<string>
+
