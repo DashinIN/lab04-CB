@@ -15,16 +15,18 @@ size_t write_data(void* items, size_t item_size, size_t item_count, void* ctx) {
      buffer->write(reinterpret_cast<char*>(items), data_size);
       return data_size;
 
-    return 0;
+
 }
 
 
 Input download(const string& address) {
     stringstream buffer;
+    char *ip;
 
   CURL *curl = curl_easy_init();
 if(curl) {
   CURLcode res;
+
    curl_easy_setopt(curl, CURLOPT_URL,  address.c_str());
   curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
   curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
@@ -34,6 +36,9 @@ if(curl) {
                 cout << curl_easy_strerror(res);
                 exit(1);
                }
+        if((res == CURLE_OK) && !curl_easy_getinfo(curl, CURLINFO_PRIMARY_IP, &ip) && ip) {
+    cerr << "IP: %s\n" <<  ip ;
+  }
   curl_easy_cleanup(curl);
 }
 
