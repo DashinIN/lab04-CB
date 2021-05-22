@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1621675949 source:c:\users\igree\desktop\lab04 cb\lab03\lab03.cpp
+1621716910 source:c:\users\igree\desktop\lab04 cb\lab03\lab03.cpp
 	<vector>
 	"svg.h"
 	"histogram.h"
 	<curl/curl.h>
 	<sstream>
 	<string>
+	<windows.h>
 
 1618850194 c:\users\igree\desktop\lab04 cb\lab03\svg.h
 	<iostream>

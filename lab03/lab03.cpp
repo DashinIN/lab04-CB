@@ -5,6 +5,9 @@
 #include <curl/curl.h>
 #include <sstream>
 #include <string>
+#include <windows.h>
+
+
 
 using namespace std;
 
@@ -20,13 +23,11 @@ size_t write_data(void* items, size_t item_size, size_t item_count, void* ctx) {
 
 Input download(const string& address) {
 
-      curl_global_init(CURL_GLOBAL_ALL);
-
-    stringstream buffer;
+stringstream buffer;
     char *ip;
 
+curl_global_init(CURL_GLOBAL_ALL);
   CURL *curl = curl_easy_init();
-
 if(curl) {
   CURLcode res;
    curl_easy_setopt(curl, CURLOPT_URL,  address.c_str());
@@ -62,6 +63,39 @@ printf("n = %08x\n", 0x1234567); // 01234567
 
 
 int main(int argc, char* argv[]) {
+  DWORD WINAPI info = GetVersion();
+
+
+
+  DWORD mask = 0x0000ffff;
+  DWORD platform = info >> 16;
+  DWORD version = info & mask;
+
+printf("Version in 10sist = %u\n", version);
+printf("Version in 16sist = %08x\n", version);
+
+printf("Platform in 10sist = %u\n", platform);
+printf("Platform in 16sist = %08x\n", platform);
+
+
+DWORD mask2 = 0x00ff;
+DWORD version_major = version >> 8;
+DWORD version_minor = version & mask2;
+
+
+printf("version_major in 10sist = %u\n", version_major);
+printf("version_major in 16sist = %04x\n", version_major);
+
+printf("version_minor in 10sist = %u\n", version_minor);
+printf("version_minor in 16sist = %04x\n", version_minor);
+
+DWORD build;
+if ((info & 0x10000000) == 0) {
+    build = platform;
+  }
+
+ printf("Windows v%u.%u (build %u)\n", version_minor, version_major, build );
+
 
     make_info_text();
     return 0;
