@@ -15,7 +15,6 @@ size_t write_data(void* items, size_t item_size, size_t item_count, void* ctx) {
      buffer->write(reinterpret_cast<char*>(items), data_size);
       return data_size;
 
-
 }
 
 
@@ -24,9 +23,9 @@ Input download(const string& address) {
     char *ip;
 
   CURL *curl = curl_easy_init();
+
 if(curl) {
   CURLcode res;
-
    curl_easy_setopt(curl, CURLOPT_URL,  address.c_str());
   curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
   curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
