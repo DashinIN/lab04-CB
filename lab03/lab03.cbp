@@ -31,7 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add option="-DCURL_STATICLIB" />
+			<Add directory="curl/include" />
 		</Compiler>
+		<Linker>
+			<Add library="curl/lib/libcurl.dll.a" />
+			<Add directory="curl/lib" />
+		</Linker>
 		<Unit filename="histogram.cpp" />
 		<Unit filename="histogram.h" />
 		<Unit filename="lab03.cpp" />
