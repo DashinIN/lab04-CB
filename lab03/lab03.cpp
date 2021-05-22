@@ -48,46 +48,17 @@ if(curl) {
     return read_input(buffer, false);
 }
 
-string
-make_info_text() {
+string make_info_text() {
     stringstream buffer;
-  const char* name = "Mass effect remastered";
-int year = 2021;
-printf("%s wishel v  %d.\n", name, year);
-// Commander Shepard was born in 2154.
-printf("n = %08x\n", 0x1234567); // 01234567
-    return buffer.str();
-}
-
-
-
-
-int main(int argc, char* argv[]) {
   DWORD WINAPI info = GetVersion();
-
-
 
   DWORD mask = 0x0000ffff;
   DWORD platform = info >> 16;
   DWORD version = info & mask;
 
-printf("Version in 10sist = %u\n", version);
-printf("Version in 16sist = %08x\n", version);
-
-printf("Platform in 10sist = %u\n", platform);
-printf("Platform in 16sist = %08x\n", platform);
-
-
 DWORD mask2 = 0x00ff;
 DWORD version_major = version >> 8;
 DWORD version_minor = version & mask2;
-
-
-printf("version_major in 10sist = %u\n", version_major);
-printf("version_major in 16sist = %04x\n", version_major);
-
-printf("version_minor in 10sist = %u\n", version_minor);
-printf("version_minor in 16sist = %04x\n", version_minor);
 
 DWORD build;
 if ((info & 0x10000000) == 0) {
@@ -96,9 +67,25 @@ if ((info & 0x10000000) == 0) {
 
  printf("Windows v%u.%u (build %u)\n", version_minor, version_major, build );
 
+char
+length[MAX_COMPUTERNAME_LENGTH+1];
+	DWORD size;
+	size=sizeof(length);
+	GetComputerName(length,&size);
 
-    make_info_text();
-    return 0;
+	printf("Computer name: %s\n", length);
+
+
+
+    return buffer.str();
+}
+
+
+
+
+int main(int argc, char* argv[]) {
+
+   make_info_text();
 
     Input input;
     if (argc > 1) {
