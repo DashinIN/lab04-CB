@@ -19,6 +19,9 @@ size_t write_data(void* items, size_t item_size, size_t item_count, void* ctx) {
 
 
 Input download(const string& address) {
+
+      curl_global_init(CURL_GLOBAL_ALL);
+
     stringstream buffer;
     char *ip;
 
@@ -44,9 +47,25 @@ if(curl) {
     return read_input(buffer, false);
 }
 
+string
+make_info_text() {
+    stringstream buffer;
+  const char* name = "Mass effect remastered";
+int year = 2021;
+printf("%s wishel v  %d.\n", name, year);
+// Commander Shepard was born in 2154.
+printf("n = %08x\n", 0x1234567); // 01234567
+    return buffer.str();
+}
+
+
 
 
 int main(int argc, char* argv[]) {
+
+    make_info_text();
+    return 0;
+
     Input input;
     if (argc > 1) {
         input = download(argv[1]);
