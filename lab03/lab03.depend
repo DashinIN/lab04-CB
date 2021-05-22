@@ -1,0 +1,70 @@
+# depslib dependency file v1.0
+1621672965 source:c:\users\igree\desktop\lab04 cb\lab03\lab03.cpp
+	<vector>
+	"svg.h"
+	"histogram.h"
+	<curl/curl.h>
+	<sstream>
+	<string>
+
+1618850194 c:\users\igree\desktop\lab04 cb\lab03\svg.h
+	<iostream>
+	<vector>
+
+1621160454 c:\users\igree\desktop\lab04 cb\lab03\histogram.h
+	<iostream>
+	<vector>
+
+1618851563 source:c:\users\igree\desktop\lab04 cb\lab03\svg.cpp
+	"svg.h"
+	<vector>
+	<string>
+
+1621236945 source:c:\users\igree\desktop\lab04 cb\lab03\histogram.cpp
+	"histogram.h"
+	<vector>
+	<string>
+	<iostream>
+
+1618204474 c:\users\igree\desktop\lab04 cb\lab03\curl\include\curl\curl.h
+	"curlver.h"
+	"system.h"
+	<stdio.h>
+	<limits.h>
+	<osreldate.h>
+	<sys/types.h>
+	<time.h>
+	<winsock2.h>
+	<ws2tcpip.h>
+	<sys/select.h>
+	<sys/socket.h>
+	<sys/time.h>
+	<support/SupportDefs.h>
+	"easy.h"
+	"multi.h"
+	"urlapi.h"
+	"options.h"
+	"typecheck-gcc.h"
+
+1618369046 c:\users\igree\desktop\lab04 cb\lab03\curl\include\curl\curlver.h
+
+1618201874 c:\users\igree\desktop\lab04 cb\lab03\curl\include\curl\system.h
+	<winsock2.h>
+	<windows.h>
+	<ws2tcpip.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<sys/poll.h>
+
+1618201874 c:\users\igree\desktop\lab04 cb\lab03\curl\include\curl\easy.h
+
+1618201874 c:\users\igree\desktop\lab04 cb\lab03\curl\include\curl\multi.h
+	"curl.h"
+
+1618201874 c:\users\igree\desktop\lab04 cb\lab03\curl\include\curl\urlapi.h
+	"curl.h"
+
+1618201874 c:\users\igree\desktop\lab04 cb\lab03\curl\include\curl\options.h
+
+1618203848 c:\users\igree\desktop\lab04 cb\lab03\curl\include\curl\typecheck-gcc.h
+
