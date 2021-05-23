@@ -48,44 +48,12 @@ if(curl) {
     return read_input(buffer, false);
 }
 
-string make_info_text() {
-    stringstream buffer;
-  DWORD WINAPI info = GetVersion();
 
-  DWORD mask = 0x0000ffff;
-  DWORD platform = info >> 16;
-  DWORD version = info & mask;
-
-DWORD mask2 = 0x00ff;
-DWORD version_major = version >> 8;
-DWORD version_minor = version & mask2;
-
-DWORD build;
-if ((info & 0x10000000) == 0) {
-    build = platform;
-  }
-
- printf("Windows v%u.%u (build %u)\n", version_minor, version_major, build );
-
-char
-length[MAX_COMPUTERNAME_LENGTH+1];
-	DWORD size;
-	size=sizeof(length);
-	GetComputerName(length,&size);
-
-	printf("Computer name: %s\n", length);
-
-
-
-    return buffer.str();
-}
 
 
 
 
 int main(int argc, char* argv[]) {
-
-   make_info_text();
 
     Input input;
     if (argc > 1) {
@@ -96,6 +64,8 @@ int main(int argc, char* argv[]) {
 
    const auto bins = make_histogram(input);
    show_histogram_svg(bins);
+
+      make_info_text();
 
     return 0;
 

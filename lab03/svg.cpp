@@ -1,8 +1,41 @@
 #include "svg.h"
 #include <vector>
+#include <sstream>
 #include <string>
+#include <windows.h>
+
 
 using namespace std;
+
+string make_info_text() {
+    stringstream buffer;
+  DWORD WINAPI info = GetVersion();
+
+
+  DWORD mask = 0x0000ffff;
+  DWORD platform = info >> 16;
+  DWORD version = info & mask;
+
+DWORD mask2 = 0x00ff;
+DWORD version_major = version >> 8;
+DWORD version_minor = version & mask2;
+
+DWORD build;
+if ((info & 0x10000000) == 0) {
+    build = platform;
+  }
+buffer <<"Windows v"<<version_minor<<"."<<version_major<<" (build "<<build <<")\n";
+
+
+char length[MAX_COMPUTERNAME_LENGTH+1];
+	DWORD size;
+	size=sizeof(length);
+	GetComputerName(length,&size);
+
+
+buffer <<"Computer name: "<<length;
+    return buffer.str();
+}
 
 int font_size(istream& in) {
 
@@ -96,6 +129,8 @@ void   show_histogram_svg(const vector<size_t>& bins) {
         svg_rect(TEXT_WIDTH, top, bin_width, BIN_HEIGHT, "black", "#c72af7");
         top += BIN_HEIGHT;
     }
+    string version = make_info_text();
+    svg_text(TEXT_LEFT, top + TEXT_BASELINE, version, size);
     svg_end();
 }
 
