@@ -91,7 +91,7 @@ void svg_rect(double x, double y, double width, double height, string stroke, st
 
 
 void   show_histogram_svg(const vector<size_t>& bins) {
-    const auto IMAGE_WIDTH = 400;
+    const auto IMAGE_WIDTH = 1000;
     const auto IMAGE_HEIGHT = 300;
     const auto TEXT_LEFT = 20;
     const auto TEXT_BASELINE = 20;
