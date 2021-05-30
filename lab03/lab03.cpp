@@ -40,7 +40,7 @@ if(curl) {
                 exit(1);
                }
         if((res == CURLE_OK) && !curl_easy_getinfo(curl, CURLINFO_PRIMARY_IP, &ip) && ip) {
-    cerr << "IP: %s\n" <<  ip ;
+    cerr << "IP: " <<  ip <<"\n";
   }
   curl_easy_cleanup(curl);
 }
